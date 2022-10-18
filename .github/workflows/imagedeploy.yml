@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches: main
-
+    
 jobs:
   build:
     runs-on: python:3.9-slim
@@ -16,7 +16,7 @@ jobs:
         with:
           version: latest
       - name: build the image
-      run: |
+      run:
         docker buildx build \
           --tag rubencarneiro/ble2mqtt:dev \
           --platform linux/amd64,linux/arm/v7,linux/arm64
