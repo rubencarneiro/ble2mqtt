@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+
+  ble2mqtt:
+    image: ble2mqtt:dev
+    build: ./ble2mqtt
+    hostname: ble2mqtt
+    restart: always
+    environment:
+      - US=CN/Canada
+    volumes:
+      - ./ble2mqtt/ble2mqtt.json:/etc/ble2mqtt.json:ro
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
